@@ -1,0 +1,30 @@
+<ul class="thumbnails">
+    <li class="span3" ng-repeat="album in albums | orderBy:sortField:sortDescending">
+        <div class="thumbnail">
+            <h3>
+                <in-place-edit field-name='title' input-type='text' input-class='input-medium' model=album>{{album.title}}</in-place-edit>
+            </h3>
+
+            <h4>
+                <in-place-edit field-name='artist' input-type='text' input-class='input-medium' model=album>{{album.artist}}</in-place-edit>
+            </h4>
+
+            <h5>
+                <in-place-edit field-name='releaseYear' input-type='text' input-class='input-small' model=album>{{album.releaseYear}}</in-place-edit>
+            </h5>
+
+            <h5>
+                <in-place-edit field-name='genre' input-type='text' input-class='input-small' model=album>{{album.genre}}</in-place-edit>
+            </h5>
+
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    <i class="icon-cog"></i>
+                </a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                    <a ng-click="delete(album)">delete</i></a>
+                </ul>
+            </div>
+        </div>
+    </li>
+</ul>

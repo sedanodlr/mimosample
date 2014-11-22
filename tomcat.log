@@ -1,0 +1,183 @@
+Nov 19, 2014 9:46:39 PM org.apache.coyote.AbstractProtocolHandler init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Nov 19, 2014 9:46:39 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Tomcat
+Nov 19, 2014 9:46:39 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.11
+Nov 19, 2014 9:46:39 PM org.apache.catalina.startup.ContextConfig webConfig
+INFO: No global web.xml found
+Nov 19, 2014 9:46:51 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://www.springframework.org/tags is already defined
+Nov 19, 2014 9:46:52 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://www.springframework.org/tags/form is already defined
+Nov 19, 2014 9:46:56 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring root WebApplicationContext
+Nov 19, 2014 9:46:56 PM org.springframework.cloud.util.ServiceLoaderWithExceptionControl$ServiceLoaderIterator next
+WARNING: Failed to load java.util.ServiceConfigurationError: org.springframework.cloud.service.ServiceConnectorCreator: Provider org.springframework.cloud.service.messaging.RabbitConnectionFactoryCreator could not be instantiated
+Nov 19, 2014 9:47:00 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'appServlet'
+Nov 19, 2014 9:47:01 PM org.apache.coyote.AbstractProtocolHandler start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Nov 19, 2014 9:48:30 PM org.apache.coyote.AbstractProtocolHandler init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Nov 19, 2014 9:48:30 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Tomcat
+Nov 19, 2014 9:48:30 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.11
+Nov 19, 2014 9:48:30 PM org.apache.catalina.startup.ContextConfig webConfig
+INFO: No global web.xml found
+Nov 19, 2014 9:48:42 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://www.springframework.org/tags is already defined
+Nov 19, 2014 9:48:42 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://www.springframework.org/tags/form is already defined
+Nov 19, 2014 9:48:46 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring root WebApplicationContext
+Nov 19, 2014 9:48:47 PM org.springframework.cloud.util.ServiceLoaderWithExceptionControl$ServiceLoaderIterator next
+WARNING: Failed to load java.util.ServiceConfigurationError: org.springframework.cloud.service.ServiceConnectorCreator: Provider org.springframework.cloud.service.messaging.RabbitConnectionFactoryCreator could not be instantiated
+Nov 19, 2014 9:48:47 PM org.apache.catalina.core.StandardContext listenerStart
+SEVERE: Exception sending context initialized event to listener instance of class org.springframework.web.context.ContextLoaderListener
+org.springframework.data.redis.RedisConnectionFailureException: Cannot get Jedis connection; nested exception is redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.fetchJedisConnector(JedisConnectionFactory.java:101)
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.getConnection(JedisConnectionFactory.java:148)
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.getConnection(JedisConnectionFactory.java:41)
+	at org.springframework.data.redis.core.RedisConnectionUtils.doGetConnection(RedisConnectionUtils.java:81)
+	at org.springframework.data.redis.core.RedisConnectionUtils.getConnection(RedisConnectionUtils.java:53)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:157)
+	at org.springframework.data.redis.core.RedisTemplate.execute(RedisTemplate.java:137)
+	at org.springframework.data.redis.core.AbstractOperations.execute(AbstractOperations.java:84)
+	at org.springframework.data.redis.core.DefaultHashOperations.keys(DefaultHashOperations.java:86)
+	at org.cloudfoundry.samples.music.repositories.redis.RedisAlbumRepository.count(RedisAlbumRepository.java:69)
+	at org.cloudfoundry.samples.music.repositories.AlbumRepositoryPopulator.onApplicationEvent(AlbumRepositoryPopulator.java:44)
+	at org.cloudfoundry.samples.music.repositories.AlbumRepositoryPopulator.onApplicationEvent(AlbumRepositoryPopulator.java:19)
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:96)
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:334)
+	at org.springframework.context.support.AbstractApplicationContext.finishRefresh(AbstractApplicationContext.java:948)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482)
+	at org.springframework.web.context.ContextLoader.configureAndRefreshWebApplicationContext(ContextLoader.java:389)
+	at org.springframework.web.context.ContextLoader.initWebApplicationContext(ContextLoader.java:294)
+	at org.springframework.web.context.ContextLoaderListener.contextInitialized(ContextLoaderListener.java:112)
+	at org.apache.catalina.core.StandardContext.listenerStart(StandardContext.java:4681)
+	at org.apache.catalina.core.StandardContext$1.call(StandardContext.java:5184)
+	at org.apache.catalina.core.StandardContext$1.call(StandardContext.java:5179)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:262)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1145)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:615)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: Could not get a resource from the pool
+	at redis.clients.util.Pool.getResource(Pool.java:22)
+	at org.springframework.data.redis.connection.jedis.JedisConnectionFactory.fetchJedisConnector(JedisConnectionFactory.java:94)
+	... 25 more
+Caused by: redis.clients.jedis.exceptions.JedisConnectionException: java.net.ConnectException: Connection refused
+	at redis.clients.jedis.Connection.connect(Connection.java:134)
+	at redis.clients.jedis.BinaryClient.connect(BinaryClient.java:69)
+	at redis.clients.jedis.BinaryJedis.connect(BinaryJedis.java:1665)
+	at redis.clients.jedis.JedisPool$JedisFactory.makeObject(JedisPool.java:72)
+	at org.apache.commons.pool.impl.GenericObjectPool.borrowObject(GenericObjectPool.java:1158)
+	at redis.clients.util.Pool.getResource(Pool.java:20)
+	... 26 more
+Caused by: java.net.ConnectException: Connection refused
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:339)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:200)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:579)
+	at redis.clients.jedis.Connection.connect(Connection.java:129)
+	... 31 more
+
+Nov 19, 2014 9:48:47 PM org.apache.catalina.core.StandardContext startInternal
+SEVERE: Error listenerStart
+Nov 19, 2014 9:48:47 PM org.apache.catalina.core.StandardContext startInternal
+SEVERE: Context [/spring-music] startup failed due to previous errors
+Nov 19, 2014 9:48:47 PM org.apache.catalina.core.ApplicationContext log
+INFO: Closing Spring root WebApplicationContext
+Nov 19, 2014 9:48:48 PM org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+SEVERE: The web application [/spring-music] registered the JDBC driver [org.h2.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Nov 19, 2014 9:48:48 PM org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+SEVERE: The web application [/spring-music] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Nov 19, 2014 9:48:48 PM org.apache.catalina.loader.WebappClassLoader clearReferencesJdbc
+SEVERE: The web application [/spring-music] registered the JDBC driver [org.postgresql.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+Nov 19, 2014 9:48:48 PM org.apache.catalina.loader.WebappClassLoader clearReferencesThreads
+SEVERE: The web application [/spring-music] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak.
+Nov 19, 2014 9:48:48 PM org.apache.coyote.AbstractProtocolHandler start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Nov 19, 2014 9:54:55 PM org.apache.coyote.AbstractProtocolHandler init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Nov 19, 2014 9:54:55 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Tomcat
+Nov 19, 2014 9:54:55 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.11
+Nov 19, 2014 9:54:55 PM org.apache.catalina.startup.ContextConfig webConfig
+INFO: No global web.xml found
+Nov 19, 2014 9:55:06 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://www.springframework.org/tags is already defined
+Nov 19, 2014 9:55:07 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://www.springframework.org/tags/form is already defined
+Nov 19, 2014 9:55:11 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring root WebApplicationContext
+Nov 19, 2014 9:55:12 PM org.springframework.cloud.util.ServiceLoaderWithExceptionControl$ServiceLoaderIterator next
+WARNING: Failed to load java.util.ServiceConfigurationError: org.springframework.cloud.service.ServiceConnectorCreator: Provider org.springframework.cloud.service.messaging.RabbitConnectionFactoryCreator could not be instantiated
+Nov 19, 2014 9:55:12 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'appServlet'
+Nov 19, 2014 9:55:13 PM org.apache.coyote.AbstractProtocolHandler start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Nov 19, 2014 10:25:00 PM org.apache.coyote.AbstractProtocolHandler init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Nov 19, 2014 10:25:00 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Tomcat
+Nov 19, 2014 10:25:00 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.11
+Nov 19, 2014 10:25:00 PM org.apache.catalina.startup.ContextConfig webConfig
+INFO: No global web.xml found
+Nov 19, 2014 10:25:12 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://www.springframework.org/tags is already defined
+Nov 19, 2014 10:25:12 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://www.springframework.org/tags/form is already defined
+Nov 19, 2014 10:25:17 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring root WebApplicationContext
+Nov 19, 2014 10:25:17 PM org.springframework.cloud.util.ServiceLoaderWithExceptionControl$ServiceLoaderIterator next
+WARNING: Failed to load java.util.ServiceConfigurationError: org.springframework.cloud.service.ServiceConnectorCreator: Provider org.springframework.cloud.service.messaging.RabbitConnectionFactoryCreator could not be instantiated
+Nov 19, 2014 10:25:20 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'appServlet'
+Nov 19, 2014 10:25:21 PM org.apache.coyote.AbstractProtocolHandler start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+Nov 19, 2014 10:25:59 PM org.apache.coyote.AbstractProtocolHandler init
+INFO: Initializing ProtocolHandler ["http-bio-8080"]
+Nov 19, 2014 10:25:59 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service Tomcat
+Nov 19, 2014 10:25:59 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet Engine: Apache Tomcat/7.0.11
+Nov 19, 2014 10:25:59 PM org.apache.catalina.startup.ContextConfig webConfig
+INFO: No global web.xml found
+Nov 19, 2014 10:26:11 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://www.springframework.org/tags is already defined
+Nov 19, 2014 10:26:11 PM org.apache.catalina.startup.TaglibUriRule body
+INFO: TLD skipped. URI: http://www.springframework.org/tags/form is already defined
+Nov 19, 2014 10:26:15 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring root WebApplicationContext
+Nov 19, 2014 10:26:16 PM org.springframework.cloud.util.ServiceLoaderWithExceptionControl$ServiceLoaderIterator next
+WARNING: Failed to load java.util.ServiceConfigurationError: org.springframework.cloud.service.ServiceConnectorCreator: Provider org.springframework.cloud.service.messaging.RabbitConnectionFactoryCreator could not be instantiated
+Nov 19, 2014 10:26:19 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring FrameworkServlet 'appServlet'
+Nov 19, 2014 10:26:19 PM org.apache.coyote.AbstractProtocolHandler start
+INFO: Starting ProtocolHandler ["http-bio-8080"]
+nov 22, 2014 10:32:16 AM org.apache.coyote.AbstractProtocolHandler init
+INFORMACIÓN: Initializing ProtocolHandler ["http-bio-8080"]
+nov 22, 2014 10:32:16 AM org.apache.catalina.core.StandardService startInternal
+INFORMACIÓN: Starting service Tomcat
+nov 22, 2014 10:32:16 AM org.apache.catalina.core.StandardEngine startInternal
+INFORMACIÓN: Starting Servlet Engine: Apache Tomcat/7.0.11
+nov 22, 2014 10:32:16 AM org.apache.catalina.startup.ContextConfig webConfig
+INFORMACIÓN: No global web.xml found
+nov 22, 2014 10:32:33 AM org.apache.catalina.startup.TaglibUriRule body
+INFORMACIÓN: TLD skipped. URI: http://www.springframework.org/tags is already defined
+nov 22, 2014 10:32:34 AM org.apache.catalina.startup.TaglibUriRule body
+INFORMACIÓN: TLD skipped. URI: http://www.springframework.org/tags/form is already defined
+nov 22, 2014 10:32:40 AM org.apache.catalina.core.ApplicationContext log
+INFORMACIÓN: Initializing Spring root WebApplicationContext
+nov 22, 2014 10:32:41 AM org.springframework.cloud.util.ServiceLoaderWithExceptionControl$ServiceLoaderIterator next
+ADVERTENCIA: Failed to load java.util.ServiceConfigurationError: org.springframework.cloud.service.ServiceConnectorCreator: Provider org.springframework.cloud.service.messaging.RabbitConnectionFactoryCreator could not be instantiated
+nov 22, 2014 10:32:46 AM org.apache.catalina.core.ApplicationContext log
+INFORMACIÓN: Initializing Spring FrameworkServlet 'appServlet'
+nov 22, 2014 10:32:48 AM org.apache.coyote.AbstractProtocolHandler start
+INFORMACIÓN: Starting ProtocolHandler ["http-bio-8080"]
